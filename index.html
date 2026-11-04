@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prompt Optimizer | Gerador Inteligente</title>
+    <!-- Tailwind CSS para estilização rápida -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-center p-4">
+
+    <div class="max-w-2xl w-full bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-2xl">
+        <h1 class="text-2xl font-bold mb-2 text-blue-400">Gerador de Prompts para Negócios</h1>
+        <p class="text-slate-400 text-sm mb-6">Transforme uma ideia simples em um prompt estruturado de alta performance para IA.</p>
+
+        <!-- Formulário -->
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium mb-1 text-slate-300">Qual é o seu objetivo ou nicho?</label>
+                <input type="text" id="userInput" placeholder="Ex: Criar uma estratégia de marketing para doceria artesanal" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500">
+            </div>
+
+            <button onclick="gerarPrompt()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-lg transition-all shadow-lg">
+                Gerar Prompt Profissional
+            </button>
+        </div>
+
+        <!-- Resultado -->
+        <div class="mt-6 hidden" id="resultadoArea">
+            <label class="block text-sm font-medium mb-1 text-slate-300">Prompt Gerado:</label>
+            <div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-emerald-400 font-mono text-sm whitespace-pre-wrap" id="promptOutput"></div>
+        </div>
+    </div>
+
+    <script>
+        function gerarPrompt() {
+            const input = document.getElementById('userInput').value.trim();
+            if (!input) {
+                alert('Por favor, digite uma ideia ou objetivo.');
+                return;
+            }
+
+            const promptGerado = `Atue como um Especialista Sênior em Inteligência Artificial e Marketing Digital. 
+Com base no objetivo abaixo, crie um plano de ação detalhado, estruturado e pronto para execução.
+
+Contexto/Objetivo: ${input}
+
+Por favor, forneça:
+1. Estratégia principal dividida em 3 passos práticos.
+2. Exemplos de aplicação real para o negócio.
+3. Métricas sugeridas para acompanhar o sucesso.`;
+
+            document.getElementById('promptOutput').innerText = promptGerado;
+            document.getElementById('resultadoArea').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
